@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class  OnboardingPage extends StatelessWidget {
-  const  OnboardingPage ({super.key});
+class ExplorePage extends StatelessWidget {
+  const ExplorePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('Onboarding Page'),
+        child: Text('Explore Page'),
       ),
     );
   }
