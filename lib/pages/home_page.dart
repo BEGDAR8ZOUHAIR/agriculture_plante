@@ -15,38 +15,17 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final pages = [
-    const ProfilePage(),
     const ExplorePage(),
     const ServicesPage(),
     const CartPage(),
+    const ProfilePage(),
   ];
-  final currentIndex = 0;
+  var currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.green,
-              ),
-              child: Text('Drawer Header'),
-            ),
-            ListTile(
-              title: const Text('Item 1'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: const Drawer(),
       appBar: AppBar(
           centerTitle: false,
           title:
@@ -80,14 +59,32 @@ class _HomePageState extends State<HomePage> {
           ]),
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIndex,
+        onTap: (value) => setState(() {
+          currentIndex = value; 
+        }),
         type: BottomNavigationBarType.fixed,
         items: const [
-          BottomNavigationBarItem(icon: Icon(IconlyBroken.home), label: 'Home'),
           BottomNavigationBarItem(
-              icon: Icon(IconlyBroken.call), label: 'Services'),
-          BottomNavigationBarItem(icon: Icon(IconlyBroken.buy), label: 'Cart'),
+            icon: Icon(IconlyBroken.home),
+            label: 'Home',
+            activeIcon: Icon(IconlyBold.home),
+          ),
           BottomNavigationBarItem(
-              icon: Icon(IconlyBroken.profile), label: 'Profile'),
+              icon: Icon(IconlyBroken.call),
+              label: 'Services',
+              activeIcon: Icon(IconlyBold.call)
+              ),
+          BottomNavigationBarItem(
+            icon: Icon(IconlyBroken.buy),
+            label: 'Cart',
+            activeIcon: Icon(IconlyBold.buy),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(IconlyBroken.profile),
+            label: 'Profile',
+            activeIcon: Icon(IconlyBold.profile),
+          ),
         ],
       ),
     );
