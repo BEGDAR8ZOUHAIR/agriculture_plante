@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text(
               "Hi Zack ! ✋",
-              style: Theme.of(context).textTheme.titleMedium,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
             Text(
               "Enjoy your day",
@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
           ]),
           actions: [
             Padding(
-              padding: const EdgeInsets.only(right: 8.0),
+              padding: const EdgeInsets.all(8.0),
               child: IconButton.filledTonal(
                   onPressed: () {},
                   icon: badges.Badge(
@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (value) => setState(() {
-          currentIndex = value; 
+          currentIndex = value;
         }),
         type: BottomNavigationBarType.fixed,
         items: const [
@@ -73,8 +73,7 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
               icon: Icon(IconlyBroken.call),
               label: 'Services',
-              activeIcon: Icon(IconlyBold.call)
-              ),
+              activeIcon: Icon(IconlyBold.call)),
           BottomNavigationBarItem(
             icon: Icon(IconlyBroken.buy),
             label: 'Cart',
