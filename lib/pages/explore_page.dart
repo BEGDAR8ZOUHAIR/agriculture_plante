@@ -1,3 +1,4 @@
+import 'package:agriculture_plante/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 
@@ -85,7 +86,7 @@ class ExplorePage extends StatelessWidget {
           children: [
             Text("Featured Products",
                 style: Theme.of(context).textTheme.titleMedium),
-            TextButton(onPressed: () {}, child: Text("See All"))
+            TextButton(onPressed: () {}, child: const Text("See All"))
           ],
         ),
         // featured products
@@ -100,9 +101,7 @@ class ExplorePage extends StatelessWidget {
             childAspectRatio: 0.9,
           ),
           itemBuilder: (context, index) {
-            return Card(
-              child: Text("Product $index"),
-            );
+            return const ProductCard();
           },
         ),
       ]),
