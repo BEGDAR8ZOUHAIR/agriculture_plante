@@ -1,8 +1,10 @@
+import 'package:agriculture_plante/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({super.key});
+  const ProductCard({super.key, required this.product});
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +22,13 @@ class ProductCard extends StatelessWidget {
             alignment: Alignment.topRight,
             width: double.infinity,
             padding: const EdgeInsets.all(6),
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(10),
                 topRight: Radius.circular(10),
               ),
               image: DecorationImage(
-                image: AssetImage("assets/tomato.jpg"),
+                image: AssetImage(product.image),
                 fit: BoxFit.cover,
               ),
             ),
@@ -48,7 +50,7 @@ class ProductCard extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8.0),
                   child: Text(
-                    "Tomato",
+                    product.name,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
@@ -58,11 +60,11 @@ class ProductCard extends StatelessWidget {
                     RichText(
                       text: TextSpan(children: [
                         TextSpan(
-                          text: "\$20",
+                          text: "\$${product.price}",
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
                         TextSpan(
-                          text: "/kg",
+                          text: "/ ${product.unit}",
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ]),

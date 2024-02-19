@@ -1,3 +1,4 @@
+import 'package:agriculture_plante/data/product.dart';
 import 'package:agriculture_plante/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
@@ -92,7 +93,7 @@ class ExplorePage extends StatelessWidget {
         // featured products
         GridView.builder(
           shrinkWrap: true,
-          itemCount: 6,
+          itemCount: products.length,
           physics: const NeverScrollableScrollPhysics(),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
@@ -101,7 +102,7 @@ class ExplorePage extends StatelessWidget {
             childAspectRatio: 0.9,
           ),
           itemBuilder: (context, index) {
-            return const ProductCard();
+            return  ProductCard( product: products[index]);
           },
         ),
       ]),
